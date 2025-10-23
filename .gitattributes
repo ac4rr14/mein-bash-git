@@ -1,1 +1,13 @@
-*.sh text eol=lf
+text eol=lf
+# Default: LF für Text
+*     text eol=lf
+
+# Ausnahmen, die CRLF brauchen (nur wenn ihr sie habt)
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# (explizit geht auch)
+*.sh   text eol=lf
+*.txt  text eol=lf
+*.md   text eol=lf
