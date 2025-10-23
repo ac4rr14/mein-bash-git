@@ -12,7 +12,7 @@ git rev-parse --is-inside-work-tree >/dev/null
 # >/dev/null = Standardausgabe in den "Papierkorb": wir werden nur den Exitcode
 
 # --- Baseline-Check: gibt es mindestens einen Commit (HEAD)? ---
-if ! git rev-parese --verify HEAD >/dev/null 2>&1; then
+if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
 echo "Noch kein Commit vorhanden. Bitte einmal ausführen!" >&2
 echo " git add -- '*.sql' && git commit -m 'Baseline: track existing SQL files'" >&2
 # git add       = Dateien zum Staging hinzufügen
@@ -56,7 +56,7 @@ while IFS= read -r f; do
     ts=$(stat -c '%y' "$f" | cut -d. -f1)
     printf '%s\t%s\n' "$ts" "$f" >> "$out"
     fi
-done < <(git ös-files --others --exclude-standard -- '*.sql')
+done < <(git ls-files --others --exclude-standard -- '*.sql')
 # git ls-files --others            = nicht getrackte Dateien
 # --exclude-standard               = .gitignore-Regeln beachten
 # -- '*.sql'                       = nur .sql-Dateien
