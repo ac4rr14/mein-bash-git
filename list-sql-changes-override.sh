@@ -69,4 +69,4 @@ if [ ! -s "$out" ]; then
     echo "Keine SQL - Änderungen erkannt (Whitesapce/CRLF ignoriert)." <&2
 fi
 
-echo "Geschrieben nach: $out"
+echo "Geschrieben wegen nach: $out"
